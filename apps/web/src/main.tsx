@@ -4,6 +4,7 @@ import { Check, CheckCheck, ImagePlus, LogOut, Send, Users } from "lucide-react"
 import type { Socket } from "socket.io-client";
 import { GOOGLE_LOGIN_URL, api, login, signup, type Chat, type Message, type User } from "./api";
 import { connectSocket } from "./socket";
+import "./firebase";
 import "./styles.css";
 
 function App() {
