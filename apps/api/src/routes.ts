@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { z } from "zod";
-import { signup, login, requireAuth } from "./auth.js";
+import { signup, login, requireAuth, startGoogleLogin, googleCallback } from "./auth.js";
 import { prisma } from "./db.js";
 import { createUploadUrl } from "./storage.js";
 
@@ -8,6 +8,8 @@ export const routes = Router();
 
 routes.post("/auth/signup", signup);
 routes.post("/auth/login", login);
+routes.get("/auth/google", startGoogleLogin);
+routes.get("/auth/google/callback", googleCallback);
 
 routes.get("/me", requireAuth, (req, res) => {
   res.json({ user: req.user });

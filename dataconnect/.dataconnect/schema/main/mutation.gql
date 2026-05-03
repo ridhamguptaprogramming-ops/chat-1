@@ -1,0 +1,542 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `Chat` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  chat_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Chat_Data!
+  ): Chat_KeyOutput! @fdc_generated(from: "Chat", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Membership` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  membership_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Membership_Data!
+  ): Membership_KeyOutput! @fdc_generated(from: "Membership", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Message` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  message_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Message_Data!
+  ): Message_KeyOutput! @fdc_generated(from: "Message", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `MessageStatus` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  messageStatus_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: MessageStatus_Data!
+  ): MessageStatus_KeyOutput! @fdc_generated(from: "MessageStatus", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `User` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `Chat` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  chat_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Chat_Data!]!
+  ): [Chat_KeyOutput!]! @fdc_generated(from: "Chat", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Membership` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  membership_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Membership_Data!]!
+  ): [Membership_KeyOutput!]! @fdc_generated(from: "Membership", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Message` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  message_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Message_Data!]!
+  ): [Message_KeyOutput!]! @fdc_generated(from: "Message", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `MessageStatus` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  messageStatus_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [MessageStatus_Data!]!
+  ): [MessageStatus_KeyOutput!]! @fdc_generated(from: "MessageStatus", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `User` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `Chat` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Chat`.
+  """
+  chat_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Chat_Data!
+  ): Chat_KeyOutput! @fdc_generated(from: "Chat", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Membership` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Membership`.
+  """
+  membership_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Membership_Data!
+  ): Membership_KeyOutput! @fdc_generated(from: "Membership", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Message` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Message`.
+  """
+  message_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Message_Data!
+  ): Message_KeyOutput! @fdc_generated(from: "Message", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `MessageStatus` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `MessageStatus`.
+  """
+  messageStatus_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: MessageStatus_Data!
+  ): MessageStatus_KeyOutput! @fdc_generated(from: "MessageStatus", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `User` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `Chat` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Chat`.
+  """
+  chat_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Chat_Data!]!
+  ): [Chat_KeyOutput!]! @fdc_generated(from: "Chat", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Membership` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Membership`.
+  """
+  membership_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Membership_Data!]!
+  ): [Membership_KeyOutput!]! @fdc_generated(from: "Membership", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Message` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Message`.
+  """
+  message_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Message_Data!]!
+  ): [Message_KeyOutput!]! @fdc_generated(from: "Message", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `MessageStatus` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `MessageStatus`.
+  """
+  messageStatus_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [MessageStatus_Data!]!
+  ): [MessageStatus_KeyOutput!]! @fdc_generated(from: "MessageStatus", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `User` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `Chat` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Chat` or `null` if not found.
+  """
+  chat_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Chat_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Chat_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Chat_Data!
+  ): Chat_KeyOutput @fdc_generated(from: "Chat", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Membership` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Membership` or `null` if not found.
+  """
+  membership_update(
+    """
+    The key used to identify the object.
+    """
+    key: Membership_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Membership_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Membership_Data!
+  ): Membership_KeyOutput @fdc_generated(from: "Membership", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Message` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Message` or `null` if not found.
+  """
+  message_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Message_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Message_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Message_Data!
+  ): Message_KeyOutput @fdc_generated(from: "Message", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `MessageStatus` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `MessageStatus` or `null` if not found.
+  """
+  messageStatus_update(
+    """
+    The key used to identify the object.
+    """
+    key: MessageStatus_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: MessageStatus_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: MessageStatus_Data!
+  ): MessageStatus_KeyOutput @fdc_generated(from: "MessageStatus", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `User` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `User` or `null` if not found.
+  """
+  user_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: User_Data!
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `Chat` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  chat_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Chat_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Chat_Data!
+  ): Int! @fdc_generated(from: "Chat", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Membership` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  membership_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Membership_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Membership_Data!
+  ): Int! @fdc_generated(from: "Membership", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Message` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  message_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Message_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Message_Data!
+  ): Int! @fdc_generated(from: "Message", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `MessageStatus` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  messageStatus_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: MessageStatus_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: MessageStatus_Data!
+  ): Int! @fdc_generated(from: "MessageStatus", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `User` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  user_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: User_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: User_Data!
+  ): Int! @fdc_generated(from: "User", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `Chat` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  chat_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Chat_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Chat_FirstRow
+  ): Chat_KeyOutput @fdc_generated(from: "Chat", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Membership` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  membership_delete(
+    """
+    The key used to identify the object.
+    """
+    key: Membership_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Membership_FirstRow
+  ): Membership_KeyOutput @fdc_generated(from: "Membership", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Message` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  message_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Message_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Message_FirstRow
+  ): Message_KeyOutput @fdc_generated(from: "Message", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `MessageStatus` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  messageStatus_delete(
+    """
+    The key used to identify the object.
+    """
+    key: MessageStatus_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: MessageStatus_FirstRow
+  ): MessageStatus_KeyOutput @fdc_generated(from: "MessageStatus", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `User` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  user_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `Chat` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  chat_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Chat_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Chat", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Membership` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  membership_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Membership_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Membership", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Message` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  message_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Message_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Message", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `MessageStatus` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  messageStatus_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: MessageStatus_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "MessageStatus", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `User` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  user_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: User_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "User", purpose: DELETE_MULTIPLE)
+}

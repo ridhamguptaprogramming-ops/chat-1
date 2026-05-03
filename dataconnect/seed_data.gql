@@ -1,0 +1,59 @@
+mutation CreateDemoData @transaction @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  user_insertMany(data: [
+    {
+      id: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      username: "alice",
+      phoneNumber: "+15551234567",
+      createdAt: "2023-01-01T10:00:00Z",
+      lastOnlineAt: "2023-01-01T10:00:00Z",
+      displayName: "Alice Smith"
+    },
+    {
+      id: "b2c3d4e5-f6a7-8901-2345-67890abcdef0",
+      username: "bob",
+      phoneNumber: "+15559876543",
+      createdAt: "2023-01-01T10:05:00Z",
+      lastOnlineAt: "2023-01-01T10:05:00Z",
+      displayName: "Bob Johnson"
+    }
+  ])
+  chat_insertMany(data: [
+    {
+      id: "c3d4e5f6-a7b8-9012-3456-7890abcdef01",
+      type: "private",
+      createdAt: "2023-01-01T10:10:00Z",
+      name: "Alice & Bob Chat",
+      creatorId: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+    }
+  ])
+  membership_insertMany(data: [
+    {
+      userId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      chatId: "c3d4e5f6-a7b8-9012-3456-7890abcdef01",
+      joinedAt: "2023-01-01T10:11:00Z",
+      isAdmin: true
+    },
+    {
+      userId: "b2c3d4e5-f6a7-8901-2345-67890abcdef0",
+      chatId: "c3d4e5f6-a7b8-9012-3456-7890abcdef01",
+      joinedAt: "2023-01-01T10:12:00Z",
+      isAdmin: false
+    }
+  ])
+  message_insertMany(data: [
+    {
+      chatId: "c3d4e5f6-a7b8-9012-3456-7890abcdef01",
+      senderId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      content: "Hi Bob, how are you?",
+      type: "text",
+      sentAt: "2023-01-01T10:15:00Z"
+    },
+    {
+      chatId: "c3d4e5f6-a7b8-9012-3456-7890abcdef01",
+      senderId: "b2c3d4e5-f6a7-8901-2345-67890abcdef0",
+      content: "I'm doing great, Alice! Thanks for asking.",
+      type: "text",
+      sentAt: "2023-01-01T10:16:00Z"
+    }
+  ])
+}

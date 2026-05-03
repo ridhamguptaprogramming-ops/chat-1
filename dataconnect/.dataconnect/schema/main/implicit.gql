@@ -1,0 +1,50 @@
+extend type Chat {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Chat", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Chat`.`creator`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  creatorId: UUID @fdc_generated(from: "Chat.creator", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Membership {
+  """
+  ✨ Implicit foreign key field based on `Membership`.`user`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  userId: UUID! @fdc_generated(from: "Membership.user", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Membership`.`chat`. It must match the value of `Chat`.`id`. See `@ref` for how to customize it.
+  """
+  chatId: UUID! @fdc_generated(from: "Membership.chat", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Message {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Message", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Message`.`chat`. It must match the value of `Chat`.`id`. See `@ref` for how to customize it.
+  """
+  chatId: UUID! @fdc_generated(from: "Message.chat", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Message`.`sender`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  senderId: UUID! @fdc_generated(from: "Message.sender", purpose: IMPLICIT_REF_FIELD)
+}
+extend type MessageStatus {
+  """
+  ✨ Implicit foreign key field based on `MessageStatus`.`message`. It must match the value of `Message`.`id`. See `@ref` for how to customize it.
+  """
+  messageId: UUID! @fdc_generated(from: "MessageStatus.message", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `MessageStatus`.`recipient`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  recipientId: UUID! @fdc_generated(from: "MessageStatus.recipient", purpose: IMPLICIT_REF_FIELD)
+}
+extend type User {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "User", purpose: IMPLICIT_KEY_FIELD)
+}

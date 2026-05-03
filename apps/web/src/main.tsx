@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Check, CheckCheck, ImagePlus, LogOut, Send, Users } from "lucide-react";
 import type { Socket } from "socket.io-client";
-import { api, login, signup, type Chat, type Message, type User } from "./api";
+import { GOOGLE_LOGIN_URL, api, login, signup, type Chat, type Message, type User } from "./api";
 import { connectSocket } from "./socket";
 import "./styles.css";
 
@@ -14,7 +14,29 @@ function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [typingUsers, setTypingUsers] = useState<Set<string>>(new Set());
   const [onlineUsers, setOnlineUsers] = useState<Set<string>>(new Set());
+  const [authNotice, setAuthNotice] = useState("");
   const socketRef = useRef<Socket | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const accessToken = params.get("accessToken");
+    const authError = params.get("authError");
+
+    if (accessToken) {
+      localStorage.setItem("accessToken", accessToken);
+      setToken(accessToken);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    if (authError) {
+      localStorage.removeItem("accessToken");
+      setToken(null);
+      setAuthNotice(authError === "google_not_configured"
+        ? "Google login needs client credentials in the backend .env file."
+        : "Google login failed. Try again or use email login.");
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
 
   useEffect(() => {
     if (!token) return;
@@ -72,8 +94,9 @@ function App() {
   }
 
   if (!token || !user) {
-    return <AuthScreen onAuth={(user, accessToken) => {
+    return <AuthScreen notice={authNotice} onAuth={(user, accessToken) => {
       localStorage.setItem("accessToken", accessToken);
+      setAuthNotice("");
       setUser(user);
       setToken(accessToken);
     }} />;
@@ -138,7 +161,7 @@ function App() {
   );
 }
 
-function AuthScreen({ onAuth }: { onAuth: (user: User, token: string) => void }) {
+function AuthScreen({ notice, onAuth }: { notice: string; onAuth: (user: User, token: string) => void }) {
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [displayName, setDisplayName] = useState("");
   const [identifier, setIdentifier] = useState("");
@@ -162,6 +185,12 @@ function AuthScreen({ onAuth }: { onAuth: (user: User, token: string) => void })
     <main className="auth-shell">
       <form className="auth-panel" onSubmit={submit}>
         <h1>Chat</h1>
+        <a className="google-button" href={GOOGLE_LOGIN_URL}>
+          <GoogleMark />
+          Continue with Google
+        </a>
+        {notice && <p className="form-notice">{notice}</p>}
+        <div className="auth-divider"><span>or</span></div>
         <div className="segmented">
           <button type="button" className={mode === "login" ? "selected" : ""} onClick={() => setMode("login")}>Login</button>
           <button type="button" className={mode === "signup" ? "selected" : ""} onClick={() => setMode("signup")}>Sign up</button>
@@ -175,6 +204,17 @@ function AuthScreen({ onAuth }: { onAuth: (user: User, token: string) => void })
         <button className="primary-button" type="submit">{mode === "login" ? "Login" : "Create account"}</button>
       </form>
     </main>
+  );
+}
+
+function GoogleMark() {
+  return (
+    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18">
+      <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62Z" />
+      <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.33-1.58-5.04-3.7H.96v2.34A9 9 0 0 0 9 18Z" />
+      <path fill="#FBBC05" d="M3.96 10.72A5.41 5.41 0 0 1 3.68 9c0-.6.1-1.18.28-1.72V4.94H.96A9 9 0 0 0 0 9c0 1.45.35 2.82.96 4.06l3-2.34Z" />
+      <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58C13.46.9 11.42 0 9 0A9 9 0 0 0 .96 4.94l3 2.34C4.67 5.16 6.66 3.58 9 3.58Z" />
+    </svg>
   );
 }
 

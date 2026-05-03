@@ -10,7 +10,10 @@ const schema = z.object({
   REDIS_URL: z.string().optional(),
   AWS_REGION: z.string().default("us-east-1"),
   S3_BUCKET: z.string().optional(),
-  S3_PUBLIC_BASE_URL: z.string().optional()
+  S3_PUBLIC_BASE_URL: z.string().optional(),
+  GOOGLE_CLIENT_ID: z.string().optional(),
+  GOOGLE_CLIENT_SECRET: z.string().optional(),
+  GOOGLE_OAUTH_REDIRECT_URI: z.string().optional()
 });
 
 export const config = schema.parse(process.env);

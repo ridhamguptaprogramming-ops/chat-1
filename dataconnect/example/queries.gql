@@ -1,0 +1,55 @@
+# Operation 1: Create a new user account
+mutation CreateUserAccount($username: String!, $phoneNumber: String!, $displayName: String, $profilePictureUrl: String, $pushNotificationToken: String) @auth(level: PUBLIC, insecureReason: "This operation is for creating new user accounts and does not require prior authentication.") {
+  user_insert(data: {
+    username: $username,
+    phoneNumber: $phoneNumber,
+    displayName: $displayName,
+    profilePictureUrl: $profilePictureUrl,
+    pushNotificationToken: $pushNotificationToken,
+    createdAt_expr: "request.time",
+    lastOnlineAt_expr: "request.time"
+  })
+}
+
+# Operation 2: Get the current user's profile
+query GetMyProfile @auth(level: USER) {
+  user(key: {id_expr: "auth.uid"}) {
+    id
+    username
+    displayName
+    profilePictureUrl
+    phoneNumber
+    createdAt
+    lastOnlineAt
+    pushNotificationToken
+  }
+}
+
+# Operation 3: Send a message to a chat
+mutation SendChatMessage($chatId: UUID!, $content: String!, $type: String!, $mediaUrl: String) @auth(level: USER) {
+  message_insert(data: {
+    chatId: $chatId,
+    senderId_expr: "auth.uid",
+    content: $content,
+    type: $type,
+    mediaUrl: $mediaUrl,
+    sentAt_expr: "request.time"
+  })
+}
+
+# Operation 4: Get messages for a specific chat
+query GetChatMessages($chatId: UUID!) @auth(level: USER) {
+  messages(where: {chatId: {eq: $chatId}, senderId: {eq_expr: "auth.uid"}}, orderBy: [{sentAt: ASC}]) {
+    id
+    content
+    type
+    mediaUrl
+    sentAt
+    sender {
+      id
+      displayName
+      username
+      profilePictureUrl
+    }
+  }
+}

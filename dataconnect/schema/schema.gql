@@ -1,0 +1,42 @@
+type User @table {
+  username: String!
+  phoneNumber: String!
+  createdAt: Timestamp!
+  lastOnlineAt: Timestamp!
+  displayName: String
+  profilePictureUrl: String
+  pushNotificationToken: String
+}
+
+type Chat @table {
+  type: String!
+  createdAt: Timestamp!
+  name: String
+  description: String
+  creator: User
+}
+
+type Membership @table(key: ["user", "chat"]) {
+  user: User!
+  chat: Chat!
+  joinedAt: Timestamp!
+  isAdmin: Boolean
+}
+
+type Message @table {
+  sender: User!
+  chat: Chat!
+  content: String!
+  type: String!
+  sentAt: Timestamp!
+  mediaUrl: String
+}
+
+type MessageStatus @table(key: ["message", "recipient"]) {
+  message: Message!
+  recipient: User!
+  status: String!
+  createdAt: Timestamp!
+  deliveredAt: Timestamp
+  readAt: Timestamp
+}

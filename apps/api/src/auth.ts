@@ -104,3 +104,85 @@ export async function login(req: Request, res: Response) {
 
   res.json({ user: authUser, accessToken: signAccessToken(authUser) });
 }
+
+export function startGoogleLogin(_req: Request, res: Response) {
+  if (!config.GOOGLE_CLIENT_ID || !config.GOOGLE_OAUTH_REDIRECT_URI) {
+    return res.redirect(`${config.WEB_ORIGIN}?authError=google_not_configured`);
+  }
+
+  const params = new URLSearchParams({
+    client_id: config.GOOGLE_CLIENT_ID,
+    redirect_uri: config.GOOGLE_OAUTH_REDIRECT_URI,
+    response_type: "code",
+    scope: "openid email profile",
+    access_type: "offline",
+    prompt: "select_account"
+  });
+
+  res.redirect(`https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`);
+}
+
+export async function googleCallback(req: Request, res: Response) {
+  const code = typeof req.query.code === "string" ? req.query.code : undefined;
+
+  if (!code || !config.GOOGLE_CLIENT_ID || !config.GOOGLE_CLIENT_SECRET || !config.GOOGLE_OAUTH_REDIRECT_URI) {
+    return res.redirect(`${config.WEB_ORIGIN}?authError=google`);
+  }
+
+  const tokenResponse = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      code,
+      client_id: config.GOOGLE_CLIENT_ID,
+      client_secret: config.GOOGLE_CLIENT_SECRET,
+      redirect_uri: config.GOOGLE_OAUTH_REDIRECT_URI,
+      grant_type: "authorization_code"
+    })
+  });
+
+  if (!tokenResponse.ok) {
+    return res.redirect(`${config.WEB_ORIGIN}?authError=google`);
+  }
+
+  const tokens = await tokenResponse.json() as { access_token?: string };
+  if (!tokens.access_token) {
+    return res.redirect(`${config.WEB_ORIGIN}?authError=google`);
+  }
+
+  const profileResponse = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+    headers: { Authorization: `Bearer ${tokens.access_token}` }
+  });
+
+  if (!profileResponse.ok) {
+    return res.redirect(`${config.WEB_ORIGIN}?authError=google`);
+  }
+
+  const profile = googleProfileSchema.parse(await profileResponse.json());
+  const user = await prisma.user.upsert({
+    where: { oauthIssuer_oauthSubject: { oauthIssuer: "google", oauthSubject: profile.sub } },
+    create: {
+      email: profile.email,
+      displayName: profile.name ?? profile.email,
+      avatarUrl: profile.picture,
+      oauthIssuer: "google",
+      oauthSubject: profile.sub
+    },
+    update: {
+      email: profile.email,
+      displayName: profile.name ?? profile.email,
+      avatarUrl: profile.picture
+    },
+    select: { id: true, email: true, phone: true, displayName: true }
+  });
+
+  const accessToken = signAccessToken(user);
+  res.redirect(`${config.WEB_ORIGIN}?accessToken=${encodeURIComponent(accessToken)}`);
+}
+
+const googleProfileSchema = z.object({
+  sub: z.string(),
+  email: z.string().email(),
+  name: z.string().optional(),
+  picture: z.string().url().optional()
+});
