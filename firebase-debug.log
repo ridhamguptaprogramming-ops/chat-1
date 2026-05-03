@@ -1,0 +1,109 @@
+[debug] [2026-05-03T12:23:09.275Z] ----------------------------------------------------------------------
+[debug] [2026-05-03T12:23:09.277Z] Command:       /usr/local/bin/node /Users/ridhamgupta805gmail.com/.npm/_npx/ba4f1959e38407b5/node_modules/.bin/firebase emulators:start --project ridham-7fe80
+[debug] [2026-05-03T12:23:09.277Z] CLI Version:   15.16.0
+[debug] [2026-05-03T12:23:09.277Z] Platform:      darwin
+[debug] [2026-05-03T12:23:09.277Z] Node Version:  v24.13.0
+[debug] [2026-05-03T12:23:09.277Z] Time:          Sun May 03 2026 17:53:09 GMT+0530 (India Standard Time)
+[debug] [2026-05-03T12:23:09.277Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-03T12:23:09.919Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-03T12:23:09.919Z] > authorizing via signed-in user (ridham.gupta.programming@gmail.com)
+[info] i  emulators: Starting emulators: dataconnect {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: dataconnect"}}
+[debug] [2026-05-03T12:23:10.173Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-05-03T12:23:10.173Z] [dataconnect.postgres] postgres server for dataconnect only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-05-03T12:23:10.173Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"dataconnect":[{"address":"127.0.0.1","family":"IPv4","port":9399},{"address":"::1","family":"IPv6","port":9399}],"dataconnect.postgres":[{"address":"127.0.0.1","family":"IPv4","port":5432}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-05-03T12:23:10.174Z] Write emulator hub locator at /var/folders/_d/cjkrws9s1cqfnm4z_c96jltc0000gn/T/hub-ridham-7fe80.json
+[info] i  dataconnect: downloading dataconnect-emulator-3.4.6... {"metadata":{"emulator":{"name":"dataconnect"},"message":"downloading dataconnect-emulator-3.4.6..."}}
+[debug] [2026-05-03T12:23:10.178Z] >>> [apiv2][query] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-macos-arm64-v3.4.6 
+[debug] [2026-05-03T12:23:10.575Z] <<< [apiv2][status] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-macos-arm64-v3.4.6 200
+[debug] [2026-05-03T12:23:10.575Z] <<< [apiv2][body] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-macos-arm64-v3.4.6 [stream]
+[info] i  dataconnect: Removing outdated emulator files: dataconnect-emulator-3.4.5 {"metadata":{"emulator":{"name":"dataconnect"},"message":"Removing outdated emulator files: dataconnect-emulator-3.4.5"}}
+[debug] [2026-05-03T12:23:14.706Z] defaultcredentials: writing to file /Users/ridhamgupta805gmail.com/.config/firebase/ridham_gupta.programming_gmail.com_application_default_credentials.json
+[debug] [2026-05-03T12:23:15.507Z] I0503 17:53:15.500989   69773 control.go:100] [projects/emulator/locations/emulator/services/chat-1 19dd] UpdateResources(): done
+Main schema: sources: schema/schema.gql [750B] 
+Connector "example": sources: example/queries.gql [1564B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.500989   69773 control.go:100] [projects/emulator/locations/emulator/services/chat-1 19dd] UpdateResources(): done\nMain schema: sources: schema/schema.gql [750B] \nConnector \"example\": sources: example/queries.gql [1564B] \n"}}
+[debug] [2026-05-03T12:23:15.507Z] defaultcredentials: writing to file /Users/ridhamgupta805gmail.com/.config/firebase/ridham_gupta.programming_gmail.com_application_default_credentials.json
+[debug] [2026-05-03T12:23:15.508Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-05-03T12:23:15.508Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-05-03T12:23:15.508Z] Starting SQL Connect Emulator with command {"binary":"/Users/ridhamgupta805gmail.com/.cache/firebase/emulators/dataconnect-emulator-3.4.6","args":["--logtostderr","-v=2","dev","--listen=127.0.0.1:9399,[::1]:9399","--config_dir=/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting SQL Connect Emulator with command {\"binary\":\"/Users/ridhamgupta805gmail.com/.cache/firebase/emulators/dataconnect-emulator-3.4.6\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=127.0.0.1:9399,[::1]:9399\",\"--config_dir=/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: SQL Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"SQL Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[info] i  dataconnect: Started up Postgres server, listening on {"address":"127.0.0.1","family":"IPv4","port":5432} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Started up Postgres server, listening on {\"address\":\"127.0.0.1\",\"family\":\"IPv4\",\"port\":5432}"}}
+[debug] [2026-05-03T12:23:15.521Z] [SQL Connect] Connecting to postgres://127.0.0.1:5432/fdcdb-2?sslmode=disable}...
+[debug] [2026-05-03T12:23:15.521Z] >>> [apiv2][query] POST http://127.0.0.1:9399/emulator/configure [none]
+[debug] [2026-05-03T12:23:15.521Z] >>> [apiv2][body] POST http://127.0.0.1:9399/emulator/configure {"connectionString":"postgres://127.0.0.1:5432/fdcdb-2?sslmode=disable","database":"fdcdb-2","serviceId":"chat-1"}
+[debug] [2026-05-03T12:23:15.523Z] *** [apiv2] error from fetch(http://127.0.0.1:9399/emulator/configure, {"headers":{},"method":"POST","body":"{\"connectionString\":\"postgres://127.0.0.1:5432/fdcdb-2?sslmode=disable\",\"database\":\"fdcdb-2\",\"serviceId\":\"chat-1\"}"}): FetchError: request to http://127.0.0.1:9399/emulator/configure failed, reason: connect ECONNREFUSED 127.0.0.1:9399
+[debug] [2026-05-03T12:23:15.523Z] [SQL Connect] Retrying connectToPostgress call (1 of 3 attempts): SQL Connect emulator: FirebaseError: Failed to make request to http://127.0.0.1:9399/emulator/configure
+[debug] [2026-05-03T12:23:15.527Z] I0503 17:53:15.527829   69774 load.go:31] Reloading schema and connectors...
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.527829   69774 load.go:31] Reloading schema and connectors...\n"}}
+[debug] [2026-05-03T12:23:15.536Z] I0503 17:53:15.536133   69774 control.go:100] [projects/emulator/locations/emulator/services/chat-1 b74d] UpdateResources(): done
+Main schema: sources: schema/schema.gql [750B] 
+Connector "example": sources: example/queries.gql [1564B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.536133   69774 control.go:100] [projects/emulator/locations/emulator/services/chat-1 b74d] UpdateResources(): done\nMain schema: sources: schema/schema.gql [750B] \nConnector \"example\": sources: example/queries.gql [1564B] \n"}}
+[debug] [2026-05-03T12:23:15.545Z] I0503 17:53:15.544967   69774 codegen.go:101] [connector "example" javascriptSdk] Generating sources into "/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/apps/api/src/dataconnect-generated"
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.544967   69774 codegen.go:101] [connector \"example\" javascriptSdk] Generating sources into \"/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/apps/api/src/dataconnect-generated\"\n"}}
+[debug] [2026-05-03T12:23:15.560Z] I0503 17:53:15.560807   69774 collector.go:107] schema extensions wrote into "/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/dataconnect/.dataconnect/schema"
+Generated sources: main/mutation.gql [16833B] prelude.gql [83799B] main/implicit.gql [2509B] main/input.gql [48516B] main/relation.gql [26239B] main/query.gql [6211B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.560807   69774 collector.go:107] schema extensions wrote into \"/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/dataconnect/.dataconnect/schema\"\nGenerated sources: main/mutation.gql [16833B] prelude.gql [83799B] main/implicit.gql [2509B] main/input.gql [48516B] main/relation.gql [26239B] main/query.gql [6211B] \n"}}
+[debug] [2026-05-03T12:23:15.561Z] I0503 17:53:15.561516   69774 collector.go:107] connector "example" javascriptSdk wrote into "/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/apps/api/src/dataconnect-generated"
+Generated sources: index.d.ts [4911B] README.md [22857B] esm/index.esm.js [2634B] esm/package.json [17B] index.cjs.js [2968B] package.json [615B] .guides/usage.md [1096B] .guides/setup.md [584B] .guides/config.json [236B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.561516   69774 collector.go:107] connector \"example\" javascriptSdk wrote into \"/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/apps/api/src/dataconnect-generated\"\nGenerated sources: index.d.ts [4911B] README.md [22857B] esm/index.esm.js [2634B] esm/package.json [17B] index.cjs.js [2968B] package.json [615B] .guides/usage.md [1096B] .guides/setup.md [584B] .guides/config.json [236B] \n"}}
+[debug] [2026-05-03T12:23:15.562Z] I0503 17:53:15.562777   69774 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.562777   69774 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation\n"}}
+[debug] [2026-05-03T12:23:15.562Z] I0503 17:53:15.562813   69774 load.go:109] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.562813   69774 load.go:109] Finished reloading\n"}}
+[debug] [2026-05-03T12:23:15.563Z] I0503 17:53:15.562996   69774 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.562996   69774 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399\n"}}
+[debug] [2026-05-03T12:23:15.563Z] I0503 17:53:15.563068   69774 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:15.563068   69774 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399\n"}}
+[debug] [2026-05-03T12:23:17.525Z] [SQL Connect] Connecting to postgres://127.0.0.1:5432/fdcdb-2?sslmode=disable}...
+[debug] [2026-05-03T12:23:17.526Z] >>> [apiv2][query] POST http://127.0.0.1:9399/emulator/configure [none]
+[debug] [2026-05-03T12:23:17.526Z] >>> [apiv2][body] POST http://127.0.0.1:9399/emulator/configure {"connectionString":"postgres://127.0.0.1:5432/fdcdb-2?sslmode=disable","database":"fdcdb-2","serviceId":"chat-1"}
+[debug] [2026-05-03T12:23:18.624Z] I0503 17:53:18.624334   69774 migrate.go:24] Running migration SQL:
+Step 1: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+Step 2: CREATE TABLE "public"."user" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "created_at" timestamptz NOT NULL, "display_name" text NULL, "last_online_at" timestamptz NOT NULL, "phone_number" text NOT NULL, "profile_picture_url" text NULL, "push_notification_token" text NULL, "username" text NOT NULL, PRIMARY KEY ("id"))
+Step 3: CREATE TABLE "public"."chat" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "creator_id" uuid NULL, "created_at" timestamptz NOT NULL, "description" text NULL, "name" text NULL, "type" text NOT NULL, PRIMARY KEY ("id"), CONSTRAINT "chat_creator_id_fkey" FOREIGN KEY ("creator_id") REFERENCES "public"."user" ("id") ON DELETE SET NULL)
+Step 4: CREATE INDEX "chat_creatorId_idx" ON "public"."chat" ("creator_id")
+Step 5: CREATE TABLE "public"."membership" ("user_id" uuid NOT NULL, "chat_id" uuid NOT NULL, "is_admin" boolean NULL, "joined_at" timestamptz NOT NULL, PRIMARY KEY ("user_id", "chat_id"), CONSTRAINT "membership_chat_id_fkey" FOREIGN KEY ("chat_id") REFERENCES "public"."chat" ("id") ON DELETE CASCADE, CONSTRAINT "membership_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 6: CREATE INDEX "membership_chatId_idx" ON "public"."membership" ("chat_id")
+Step 7: CREATE INDEX "membership_userId_idx" ON "public"."membership" ("user_id")
+Step 8: CREATE TABLE "public"."message" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "chat_id" uuid NOT NULL, "sender_id" uuid NOT NULL, "content" text NOT NULL, "media_url" text NULL, "sent_at" timestamptz NOT NULL, "type" text NOT NULL, PRIMARY KEY ("id"), CONSTRAINT "message_chat_id_fkey" FOREIGN KEY ("chat_id") REFERENCES "public"."chat" ("id") ON DELETE CASCADE, CONSTRAINT "message_sender_id_fkey" FOREIGN KEY ("sender_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 9: CREATE INDEX "message_chatId_idx" ON "public"."message" ("chat_id")
+Step 10: CREATE INDEX "message_senderId_idx" ON "public"."message" ("sender_id")
+Step 11: CREATE TABLE "public"."message_status" ("message_id" uuid NOT NULL, "recipient_id" uuid NOT NULL, "created_at" timestamptz NOT NULL, "delivered_at" timestamptz NULL, "read_at" timestamptz NULL, "status" text NOT NULL, PRIMARY KEY ("message_id", "recipient_id"), CONSTRAINT "message_status_message_id_fkey" FOREIGN KEY ("message_id") REFERENCES "public"."message" ("id") ON DELETE CASCADE, CONSTRAINT "message_status_recipient_id_fkey" FOREIGN KEY ("recipient_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 12: CREATE INDEX "message_status_messageId_idx" ON "public"."message_status" ("message_id")
+Step 13: CREATE INDEX "message_status_recipientId_idx" ON "public"."message_status" ("recipient_id")
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:18.624334   69774 migrate.go:24] Running migration SQL:\nStep 1: CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\"\nStep 2: CREATE TABLE \"public\".\"user\" (\"id\" uuid NOT NULL DEFAULT uuid_generate_v4(), \"created_at\" timestamptz NOT NULL, \"display_name\" text NULL, \"last_online_at\" timestamptz NOT NULL, \"phone_number\" text NOT NULL, \"profile_picture_url\" text NULL, \"push_notification_token\" text NULL, \"username\" text NOT NULL, PRIMARY KEY (\"id\"))\nStep 3: CREATE TABLE \"public\".\"chat\" (\"id\" uuid NOT NULL DEFAULT uuid_generate_v4(), \"creator_id\" uuid NULL, \"created_at\" timestamptz NOT NULL, \"description\" text NULL, \"name\" text NULL, \"type\" text NOT NULL, PRIMARY KEY (\"id\"), CONSTRAINT \"chat_creator_id_fkey\" FOREIGN KEY (\"creator_id\") REFERENCES \"public\".\"user\" (\"id\") ON DELETE SET NULL)\nStep 4: CREATE INDEX \"chat_creatorId_idx\" ON \"public\".\"chat\" (\"creator_id\")\nStep 5: CREATE TABLE \"public\".\"membership\" (\"user_id\" uuid NOT NULL, \"chat_id\" uuid NOT NULL, \"is_admin\" boolean NULL, \"joined_at\" timestamptz NOT NULL, PRIMARY KEY (\"user_id\", \"chat_id\"), CONSTRAINT \"membership_chat_id_fkey\" FOREIGN KEY (\"chat_id\") REFERENCES \"public\".\"chat\" (\"id\") ON DELETE CASCADE, CONSTRAINT \"membership_user_id_fkey\" FOREIGN KEY (\"user_id\") REFERENCES \"public\".\"user\" (\"id\") ON DELETE CASCADE)\nStep 6: CREATE INDEX \"membership_chatId_idx\" ON \"public\".\"membership\" (\"chat_id\")\nStep 7: CREATE INDEX \"membership_userId_idx\" ON \"public\".\"membership\" (\"user_id\")\nStep 8: CREATE TABLE \"public\".\"message\" (\"id\" uuid NOT NULL DEFAULT uuid_generate_v4(), \"chat_id\" uuid NOT NULL, \"sender_id\" uuid NOT NULL, \"content\" text NOT NULL, \"media_url\" text NULL, \"sent_at\" timestamptz NOT NULL, \"type\" text NOT NULL, PRIMARY KEY (\"id\"), CONSTRAINT \"message_chat_id_fkey\" FOREIGN KEY (\"chat_id\") REFERENCES \"public\".\"chat\" (\"id\") ON DELETE CASCADE, CONSTRAINT \"message_sender_id_fkey\" FOREIGN KEY (\"sender_id\") REFERENCES \"public\".\"user\" (\"id\") ON DELETE CASCADE)\nStep 9: CREATE INDEX \"message_chatId_idx\" ON \"public\".\"message\" (\"chat_id\")\nStep 10: CREATE INDEX \"message_senderId_idx\" ON \"public\".\"message\" (\"sender_id\")\nStep 11: CREATE TABLE \"public\".\"message_status\" (\"message_id\" uuid NOT NULL, \"recipient_id\" uuid NOT NULL, \"created_at\" timestamptz NOT NULL, \"delivered_at\" timestamptz NULL, \"read_at\" timestamptz NULL, \"status\" text NOT NULL, PRIMARY KEY (\"message_id\", \"recipient_id\"), CONSTRAINT \"message_status_message_id_fkey\" FOREIGN KEY (\"message_id\") REFERENCES \"public\".\"message\" (\"id\") ON DELETE CASCADE, CONSTRAINT \"message_status_recipient_id_fkey\" FOREIGN KEY (\"recipient_id\") REFERENCES \"public\".\"user\" (\"id\") ON DELETE CASCADE)\nStep 12: CREATE INDEX \"message_status_messageId_idx\" ON \"public\".\"message_status\" (\"message_id\")\nStep 13: CREATE INDEX \"message_status_recipientId_idx\" ON \"public\".\"message_status\" (\"recipient_id\")\n"}}
+[debug] [2026-05-03T12:23:18.685Z] I0503 17:53:18.685174   69774 control.go:100] [projects/emulator/locations/emulator/services/chat-1 a664] UpdateResources(): done
+Main schema: sources: schema/schema.gql [750B] 
+Connector "example": sources: example/queries.gql [1564B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:18.685174   69774 control.go:100] [projects/emulator/locations/emulator/services/chat-1 a664] UpdateResources(): done\nMain schema: sources: schema/schema.gql [750B] \nConnector \"example\": sources: example/queries.gql [1564B] \n"}}
+[debug] [2026-05-03T12:23:18.690Z] I0503 17:53:18.690448   69774 configure_emulator.go:21] ConfigureEmulator successed
+Request: service_id: "chat-1"
+connection_string: "postgres://127.0.0.1:5432/fdcdb-2?sslmode=disable"
+database: "fdcdb-2"
+
+Response: 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0503 17:53:18.690448   69774 configure_emulator.go:21] ConfigureEmulator successed\nRequest: service_id: \"chat-1\"\nconnection_string: \"postgres://127.0.0.1:5432/fdcdb-2?sslmode=disable\"\ndatabase: \"fdcdb-2\"\n\nResponse: \n"}}
+[debug] [2026-05-03T12:23:18.691Z] <<< [apiv2][status] POST http://127.0.0.1:9399/emulator/configure 200
+[debug] [2026-05-03T12:23:18.691Z] <<< [apiv2][body] POST http://127.0.0.1:9399/emulator/configure {}
+[debug] [2026-05-03T12:23:18.691Z] [SQL Connect] Successfully connected to postgres://127.0.0.1:5432/fdcdb-2?sslmode=disable}
+[warn] ⚠  emulators: The Emulator UI is not starting because none of the running emulators have a UI component. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI is not starting because none of the running emulators have a UI component."}}
+[debug] [2026-05-03T12:23:18.693Z] >>> [apiv2][query] GET http://127.0.0.1:9399/emulator/info [none]
+[debug] [2026-05-03T12:23:18.694Z] <<< [apiv2][status] GET http://127.0.0.1:9399/emulator/info 200
+[debug] [2026-05-03T12:23:18.694Z] <<< [apiv2][body] GET http://127.0.0.1:9399/emulator/info {"version":"","services":[{"serviceId":"chat-1","connectionString":"dbname='fdcdb-2' host='127.0.0.1' port='5432' sslmode='disable' dbname='fdcdb-2'"}]}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────┬────────────────┐
+│ Emulator    │ Host:Port      │
+├─────────────┼────────────────┤
+│ SQL Connect │ 127.0.0.1:9399 │
+└─────────────┴────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 

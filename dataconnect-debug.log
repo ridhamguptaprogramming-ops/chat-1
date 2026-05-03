@@ -1,0 +1,36 @@
+I0503 17:53:15.527829   69774 load.go:31] Reloading schema and connectors...
+I0503 17:53:15.536133   69774 control.go:100] [projects/emulator/locations/emulator/services/chat-1 b74d] UpdateResources(): done
+Main schema: sources: schema/schema.gql [750B] 
+Connector "example": sources: example/queries.gql [1564B] 
+I0503 17:53:15.544967   69774 codegen.go:101] [connector "example" javascriptSdk] Generating sources into "/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/apps/api/src/dataconnect-generated"
+I0503 17:53:15.560807   69774 collector.go:107] schema extensions wrote into "/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/dataconnect/.dataconnect/schema"
+Generated sources: main/mutation.gql [16833B] prelude.gql [83799B] main/implicit.gql [2509B] main/input.gql [48516B] main/relation.gql [26239B] main/query.gql [6211B] 
+I0503 17:53:15.561516   69774 collector.go:107] connector "example" javascriptSdk wrote into "/Users/ridhamgupta805gmail.com/Documents/Todo Assignment/chat-1/apps/api/src/dataconnect-generated"
+Generated sources: index.d.ts [4911B] README.md [22857B] esm/index.esm.js [2634B] esm/package.json [17B] index.cjs.js [2968B] package.json [615B] .guides/usage.md [1096B] .guides/setup.md [584B] .guides/config.json [236B] 
+I0503 17:53:15.562777   69774 installsdk.go:55] Package @dataconnect/generated is already installed. Skipping installation
+I0503 17:53:15.562813   69774 load.go:109] Finished reloading
+I0503 17:53:15.562996   69774 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0503 17:53:15.563068   69774 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+I0503 17:53:18.624334   69774 migrate.go:24] Running migration SQL:
+Step 1: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+Step 2: CREATE TABLE "public"."user" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "created_at" timestamptz NOT NULL, "display_name" text NULL, "last_online_at" timestamptz NOT NULL, "phone_number" text NOT NULL, "profile_picture_url" text NULL, "push_notification_token" text NULL, "username" text NOT NULL, PRIMARY KEY ("id"))
+Step 3: CREATE TABLE "public"."chat" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "creator_id" uuid NULL, "created_at" timestamptz NOT NULL, "description" text NULL, "name" text NULL, "type" text NOT NULL, PRIMARY KEY ("id"), CONSTRAINT "chat_creator_id_fkey" FOREIGN KEY ("creator_id") REFERENCES "public"."user" ("id") ON DELETE SET NULL)
+Step 4: CREATE INDEX "chat_creatorId_idx" ON "public"."chat" ("creator_id")
+Step 5: CREATE TABLE "public"."membership" ("user_id" uuid NOT NULL, "chat_id" uuid NOT NULL, "is_admin" boolean NULL, "joined_at" timestamptz NOT NULL, PRIMARY KEY ("user_id", "chat_id"), CONSTRAINT "membership_chat_id_fkey" FOREIGN KEY ("chat_id") REFERENCES "public"."chat" ("id") ON DELETE CASCADE, CONSTRAINT "membership_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 6: CREATE INDEX "membership_chatId_idx" ON "public"."membership" ("chat_id")
+Step 7: CREATE INDEX "membership_userId_idx" ON "public"."membership" ("user_id")
+Step 8: CREATE TABLE "public"."message" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "chat_id" uuid NOT NULL, "sender_id" uuid NOT NULL, "content" text NOT NULL, "media_url" text NULL, "sent_at" timestamptz NOT NULL, "type" text NOT NULL, PRIMARY KEY ("id"), CONSTRAINT "message_chat_id_fkey" FOREIGN KEY ("chat_id") REFERENCES "public"."chat" ("id") ON DELETE CASCADE, CONSTRAINT "message_sender_id_fkey" FOREIGN KEY ("sender_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 9: CREATE INDEX "message_chatId_idx" ON "public"."message" ("chat_id")
+Step 10: CREATE INDEX "message_senderId_idx" ON "public"."message" ("sender_id")
+Step 11: CREATE TABLE "public"."message_status" ("message_id" uuid NOT NULL, "recipient_id" uuid NOT NULL, "created_at" timestamptz NOT NULL, "delivered_at" timestamptz NULL, "read_at" timestamptz NULL, "status" text NOT NULL, PRIMARY KEY ("message_id", "recipient_id"), CONSTRAINT "message_status_message_id_fkey" FOREIGN KEY ("message_id") REFERENCES "public"."message" ("id") ON DELETE CASCADE, CONSTRAINT "message_status_recipient_id_fkey" FOREIGN KEY ("recipient_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 12: CREATE INDEX "message_status_messageId_idx" ON "public"."message_status" ("message_id")
+Step 13: CREATE INDEX "message_status_recipientId_idx" ON "public"."message_status" ("recipient_id")
+I0503 17:53:18.685174   69774 control.go:100] [projects/emulator/locations/emulator/services/chat-1 a664] UpdateResources(): done
+Main schema: sources: schema/schema.gql [750B] 
+Connector "example": sources: example/queries.gql [1564B] 
+I0503 17:53:18.690448   69774 configure_emulator.go:21] ConfigureEmulator successed
+Request: service_id: "chat-1"
+connection_string: "postgres://127.0.0.1:5432/fdcdb-2?sslmode=disable"
+database: "fdcdb-2"
+
+Response: 
