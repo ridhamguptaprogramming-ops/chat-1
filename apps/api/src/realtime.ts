@@ -1,6 +1,6 @@
 import type { Server } from "socket.io";
 import { createAdapter } from "@socket.io/redis-adapter";
-import Redis from "ioredis";
+import { Redis } from "ioredis";
 import { z } from "zod";
 import { prisma } from "./db.js";
 import { verifyAccessToken, type AuthUser } from "./auth.js";

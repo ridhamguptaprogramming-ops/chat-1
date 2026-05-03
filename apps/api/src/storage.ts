@@ -1,6 +1,6 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { v4 as uuid } from "uuid";
+import { randomUUID } from "node:crypto";
 import { config } from "./config.js";
 
 const s3 = new S3Client({ region: config.AWS_REGION });
@@ -17,7 +17,7 @@ export async function createUploadUrl(userId: string, input: UploadInput) {
   }
 
   const extension = input.fileName.includes(".") ? input.fileName.split(".").pop() : "bin";
-  const key = `users/${userId}/${uuid()}.${extension}`;
+  const key = `users/${userId}/${randomUUID()}.${extension}`;
   const command = new PutObjectCommand({
     Bucket: config.S3_BUCKET,
     Key: key,

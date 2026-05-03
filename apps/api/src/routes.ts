@@ -62,7 +62,7 @@ routes.post("/chats", requireAuth, async (req, res) => {
 });
 
 routes.get("/chats/:chatId/messages", requireAuth, async (req, res) => {
-  const { chatId } = req.params;
+  const chatId = String(req.params.chatId);
   const cursor = typeof req.query.cursor === "string" ? req.query.cursor : undefined;
   const limit = Math.min(Number(req.query.limit ?? 30), 100);
 
