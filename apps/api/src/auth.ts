@@ -106,7 +106,7 @@ export async function login(req: Request, res: Response) {
 }
 
 export function startGoogleLogin(_req: Request, res: Response) {
-  if (!config.GOOGLE_CLIENT_ID || !config.GOOGLE_OAUTH_REDIRECT_URI) {
+  if (!config.GOOGLE_CLIENT_ID || !config.GOOGLE_CLIENT_SECRET || !config.GOOGLE_OAUTH_REDIRECT_URI) {
     return res.redirect(`${config.WEB_ORIGIN}?authError=google_not_configured`);
   }
 
