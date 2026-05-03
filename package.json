@@ -1,0 +1,17 @@
+{
+  "name": "chat-1",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace chat-api",
+    "dev:web": "npm run dev --workspace chat-web",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "prisma:generate": "npm run prisma:generate --workspace chat-api",
+    "prisma:migrate": "npm run prisma:migrate --workspace chat-api"
+  }
+}
