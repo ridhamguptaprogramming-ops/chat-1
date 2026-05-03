@@ -36,6 +36,17 @@ docs/
 ```bash
 cd apps/api
 cp .env.example .env
+```
+
+Then open `apps/api/.env` and set your Google OAuth client credentials:
+
+```env
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GOOGLE_OAUTH_REDIRECT_URI=http://localhost:4000/api/auth/google/callback
+```
+
+```bash
 npm install
 npm run prisma:generate
 npm run dev
